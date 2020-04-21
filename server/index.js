@@ -8,7 +8,6 @@ const ip = "127.0.0.1";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-let chats = { results: [] };
 
 let handler = function () {
     console.log("Server is running now");
@@ -18,7 +17,7 @@ app.use(cors());
 app.use(express.static('public'));
 
 app.get('/', (req, res) => { 
-    res.status(200).send(JSON.stringify(chats));
+    res.status(200).send();
 });
 
 app.get('/aboutMe', (req, res) => {
