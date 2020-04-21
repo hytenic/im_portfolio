@@ -17,6 +17,10 @@ h1{
     margin: 0;
     font-size: 4em;
 }
+
+h2{
+    font-size: 4em;
+}
 .menuContainer{
     border-left: 10px;
 }
@@ -29,3 +33,51 @@ h1{
     text-align: center;
     height : 50px;
 }
+.eachMenu:hover{
+    cursor: pointer;
+}
+
+.contact{
+    margin-left: 20px;
+}
+
+.mdl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    visibility: hidden;
+  }
+  
+  .mdl.show {
+    visibility: visible;
+  }
+  
+  .mdl-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .mdl .sidebar {
+    position: absolute;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    transform: translateX(100%);
+    padding: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .mdl.show .sidebar {
+    transform: translateX(0);
+  }

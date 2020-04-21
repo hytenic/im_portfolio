@@ -1,11 +1,13 @@
 import React from "react";
+import AboutMe from "./AboutMe"
 
-const Nav = () => (
+const Nav = (props) => (
     <nav className="navbar">
-        <div className="menuContainer">
-            <a className={"aboutMe " + "eachMenu"}>
-                <span>About Me</span>
-            </a>
+        <div className={"contact " + "eachMenu"} onClick={props.handleAboutMe}>
+            Contact
+        </div>
+        <div className={"aboutMe " + "eachMenu"}>
+            <a href="./aboutMe">About Me</a>
         </div>
     </nav>
 );
