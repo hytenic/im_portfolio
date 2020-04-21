@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 var cors = require('cors');
 
-const port = 8080;
+const port = 3000;
 const ip = "127.0.0.1";
 
 app.use(bodyParser.json());
@@ -15,16 +15,14 @@ let handler = function () {
 };
 
 app.use(cors());
-
+app.use(express.static('public'));
 
 app.get('/', (req, res) => { 
     res.status(200).send(JSON.stringify(chats));
 });
 
-app.post('/classes/messages', (req, res) => {
-    req.body['date'] = new Date().toString();
-    chats.results.push(req.body);
-    res.status(201).send(JSON.stringify(chats));
+app.get('/aboutMe', (req, res) => {
+    res.status(200).send();
 });
 
 
