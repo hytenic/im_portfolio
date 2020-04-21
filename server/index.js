@@ -15,6 +15,7 @@ let handler = function () {
 
 app.use(cors());
 app.use(express.static('public'));
+app.use('/aboutMe', express.static('public'));
 
 app.get('/', (req, res) => { 
     res.status(200).send();
