@@ -32,8 +32,8 @@ class App extends React.Component {
         <Contact isOpen ={this.state.isAboutMeOpen}
           handleClose={this.handleAboutMeButtonClick.bind(this)} />
         <Routes />
-        <Main className="mainComponent" />
-        <Footer className="footerComponent" />
+        {/* <Main className="mainComponent" />
+        <Footer className="footerComponent" /> */}
       </div>
     );
   }
