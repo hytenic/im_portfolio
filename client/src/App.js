@@ -1,40 +1,67 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css'
-import Nav from './Nav'
-import Main from './Main'
-import Footer from './Footer'
-import AboutMe from './AboutMe'
-import { Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet'
 import Contact from './Contact'
-import Routes from "./Routes";
-
+import AboutMe from "./AboutMe"
+import Main from "./Main"
+import Footer from "./Footer"
+import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      isAboutMeOpen : false
+      isAboutMeOpen: false,
+      currentpage: "Home"
     }
   }
-  
+
   handleContactButtonClick() {
-      this.setState(prevState => ({
-        isAboutMeOpen: !prevState.isAboutMeOpen
-      }));  
-    
+    this.setState(prevState => ({
+      isAboutMeOpen: !prevState.isAboutMeOpen
+    }));
+
+  }
+
+  updatePageTitle(title) {
+    this.setState({
+      currentpage: title
+    })
   }
 
   render() {
-    
+
     return (
+      <Router>
       <div className="App">
-        <Nav className="navComponent" handleAboutMe={this.handleContactButtonClick.bind(this)} />
-        <Contact isOpen ={this.state.isAboutMeOpen}
+        <Helmet>
+          <title>{this.state.currentpage}</title>
+        </Helmet>
+        <nav className="navbar">
+          <div className={"home"}>
+            <Link to="/" onClick={() => this.updatePageTitle("Home")}>Home</Link>
+          </div>
+          <div className={"contact " + "eachMenu"} 
+          onClick={() => this.handleContactButtonClick(this.state.isAboutMeOpen)}>
+            Contact
+        </div>
+          <div className={"aboutMe " + "eachMenu"}>
+            <Link to="./aboutMe" onClick={() => this.updatePageTitle("About Me")}>About Me</Link>
+          </div>
+        </nav>
+        <Contact isOpen={this.state.isAboutMeOpen}
           handleClose={this.handleContactButtonClick.bind(this)} />
-        <Routes />
-        {/* <Main className="mainComponent" />
-        <Footer className="footerComponent" /> */}
+        <Switch>
+          <Route path="/aboutMe">
+            <AboutMe />
+          </Route>
+          <Route path="/">
+            <Main className="mainComponent"/>
+            <Footer className="footerComponent"/>
+          </Route>
+        </Switch>
       </div>
+      </Router>
     );
   }
 }
