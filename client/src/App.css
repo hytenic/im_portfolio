@@ -9,11 +9,27 @@ footer{
 }
 
 .main{
-    height: 600px;
+    z-index: 0;
+    height: 1000px;
     background-color: aliceblue;
+    position: relative;
+}
+
+img{
+    width:100%;
+    height: 1000px;
+}
+
+.mainTitle{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    top: 20%;
+    position: absolute;
 }
 
 h1{
+    z-index: 2;
     margin: 0;
     font-size: 4em;
 }
@@ -25,6 +41,7 @@ h2{
     border-left: 10px;
 }
 a{
+    color: black;
     text-decoration: none;
 }
 a:visited{
@@ -32,6 +49,7 @@ a:visited{
 }
 
 .eachMenu{
+    z-index: 1;
     border-left: 20px;
     line-height: 50px;
     float: right;
@@ -43,11 +61,42 @@ a:visited{
     cursor: pointer;
 }
 
+.home{
+    float: left;
+    line-height: 50px;
+    font-size: 1.3em;
+    text-align: center;
+    height: 50px;
+}
+
 .contact{
     margin-left: 20px;
 }
 
+.contactInput{
+    margin: 10px;
+    width:300px;
+    font-size:1.3em;
+}
+
+textarea{
+    height: 200px;
+}
+
+.submitButton{
+    margin-left: 10px;
+    font-size: 1.3em;
+}
+
+.backButton{
+    font-size: 1.5em;
+}
+.backButton:hover{
+    cursor: pointer;
+}
+
 .mdl {
+    z-index: 3;
     position: absolute;
     top: 0;
     right: 0;
@@ -78,10 +127,10 @@ a:visited{
     top: 50px;
     right: 0;
     bottom: 0;
-    width: 60%;
+    width: 20%;
     transform: translateX(100%);
     padding: 20px;
-    transition: transform 0.3s;
+    transition: transform 0.5s;
   }
   
   .mdl.show .sidebar {

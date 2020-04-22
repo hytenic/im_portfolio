@@ -17,7 +17,7 @@ class App extends React.Component {
     }
   }
   
-  handleAboutMeButtonClick() {
+  handleContactButtonClick() {
       this.setState(prevState => ({
         isAboutMeOpen: !prevState.isAboutMeOpen
       }));  
@@ -28,9 +28,9 @@ class App extends React.Component {
     
     return (
       <div className="App">
-        <Nav className="navComponent" handleAboutMe={this.handleAboutMeButtonClick.bind(this)} />
+        <Nav className="navComponent" handleAboutMe={this.handleContactButtonClick.bind(this)} />
         <Contact isOpen ={this.state.isAboutMeOpen}
-          handleClose={this.handleAboutMeButtonClick.bind(this)} />
+          handleClose={this.handleContactButtonClick.bind(this)} />
         <Routes />
         {/* <Main className="mainComponent" />
         <Footer className="footerComponent" /> */}

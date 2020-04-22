@@ -3,6 +3,9 @@ import AboutMe from "./AboutMe"
 
 const Nav = (props) => (
     <nav className="navbar">
+        <div className={"home"}>
+            <a href="/">Home</a>
+        </div>
         <div className={"contact " + "eachMenu"} onClick={props.handleAboutMe}>
             Contact
         </div>
